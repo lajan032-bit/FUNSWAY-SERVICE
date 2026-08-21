@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funsway Service - Rental Car Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Navbar -->
+<nav class="bg-blue-600 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold">🚗 Funsway Service</h1>
+            <div class="flex gap-4 items-center">
+                <a href="#cars" class="hover:text-blue-200">Browse Cars</a>
+                <a href="#login" class="hover:text-blue-200">Login</a>
+                <button class="bg-green-500 px-4 py-2 rounded hover:bg-green-600">Register</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-4">Welcome to Funsway Service</h1>
+        <p class="text-xl mb-8">Rent your dream car today and enjoy the journey</p>
+        <button onclick="scrollToCars()" class="inline-block bg-green-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-600">
+            Browse Cars
+        </button>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-12">Why Choose Funsway Service?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">🚗</div>
+            <h3 class="text-xl font-bold mb-2">Wide Selection</h3>
+            <p class="text-gray-600">Choose from our extensive fleet of quality vehicles</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-bold mb-2">Affordable Prices</h3>
+            <p class="text-gray-600">Competitive rates with no hidden charges</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <div class="text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-bold mb-2">Easy Booking</h3>
+            <p class="text-gray-600">Simple and fast booking process online</p>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <h3 class="text-4xl font-bold text-blue-600">500+</h3>
+                <p class="text-gray-600">Happy Customers</p>
+            </div>
+            <div class="text-center">
+                <h3 class="text-4xl font-bold text-blue-600">100+</h3>
+                <p class="text-gray-600">Cars Available</p>
+            </div>
+            <div class="text-center">
+                <h3 class="text-4xl font-bold text-blue-600">50+</h3>
+                <p class="text-gray-600">Locations</p>
+            </div>
+            <div class="text-center">
+                <h3 class="text-4xl font-bold text-blue-600">24/7</h3>
+                <p class="text-gray-600">Customer Support</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Fleet Section -->
+<div class="max-w-7xl mx-auto px-4 py-16" id="cars">
+    <h2 class="text-4xl font-bold mb-8">Our Fleet</h2>
+    
+    <!-- Filters -->
+    <div class="mb-8">
+        <div class="flex gap-4 flex-wrap">
+            <button onclick="filterCars('all')" class="px-4 py-2 rounded bg-blue-600 text-white" id="filter-all">
+                All Cars
+            </button>
+            <button onclick="filterCars('economy')" class="px-4 py-2 rounded bg-gray-200" id="filter-economy">
+                Economy
+            </button>
+            <button onclick="filterCars('sedan')" class="px-4 py-2 rounded bg-gray-200" id="filter-sedan">
+                Sedan
+            </button>
+            <button onclick="filterCars('suv')" class="px-4 py-2 rounded bg-gray-200" id="filter-suv">
+                SUV
+            </button>
+        </div>
+    </div>
+
+    <!-- Cars Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cars-grid">
+        <!-- Cars will be populated here by JavaScript -->
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="bg-blue-600 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Rent?</h2>
+        <p class="text-lg mb-8">Start your journey with us today</p>
+        <button onclick="scrollToCars()" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100">
+            Explore Vehicles
+        </button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <h3 class="text-lg font-bold mb-4">Funsway Service</h3>
+                <p class="text-gray-400">Your trusted rental car partner</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="text-gray-400 space-y-2">
+                    <li><a href="#" class="hover:text-white">Home</a></li>
+                    <li><a href="#cars" class="hover:text-white">Cars</a></li>
+                    <li><a href="#" class="hover:text-white">Bookings</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Support</h4>
+                <ul class="text-gray-400 space-y-2">
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    <li><a href="#" class="hover:text-white">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                <ul class="text-gray-400 space-y-2">
+                    <li><a href="#" class="hover:text-white">Facebook</a></li>
+                    <li><a href="#" class="hover:text-white">Twitter</a></li>
+                    <li><a href="#" class="hover:text-white">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 Funsway Service. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Sample car data
+    const cars = [
+        {
+            id: 1,
+            make: 'Toyota',
+            model: 'Corolla',
+            year: 2023,
+            category: 'economy',
+            pricePerDay: 40,
+            seats: 5,
+            transmission: 'automatic',
+            fuelType: 'petrol'
+        },
+        {
+            id: 2,
+            make: 'Honda',
+            model: 'Civic',
+            year: 2023,
+            category: 'sedan',
+            pricePerDay: 50,
+            seats: 5,
+            transmission: 'automatic',
+            fuelType: 'petrol'
+        },
+        {
+            id: 3,
+            make: 'Toyota',
+            model: 'RAV4',
+            year: 2023,
+            category: 'suv',
+            pricePerDay: 70,
+            seats: 5,
+            transmission: 'automatic',
+            fuelType: 'petrol'
+        },
+        {
+            id: 4,
+            make: 'Hyundai',
+            model: 'i10',
+            year: 2023,
+            category: 'economy',
+            pricePerDay: 35,
+            seats: 5,
+            transmission: 'manual',
+            fuelType: 'petrol'
+        },
+        {
+            id: 5,
+            make: 'BMW',
+            model: 'X5',
+            year: 2023,
+            category: 'suv',
+            pricePerDay: 120,
+            seats: 7,
+            transmission: 'automatic',
+            fuelType: 'diesel'
+        },
+        {
+            id: 6,
+            make: 'Nissan',
+            model: 'Altima',
+            year: 2023,
+            category: 'sedan',
+            pricePerDay: 55,
+            seats: 5,
+            transmission: 'automatic',
+            fuelType: 'petrol'
+        }
+    ];
+
+    let currentFilter = 'all';
+
+    function displayCars(filter) {
+        const grid = document.getElementById('cars-grid');
+        grid.innerHTML = '';
+
+        const filteredCars = filter === 'all' 
+            ? cars 
+            : cars.filter(car => car.category === filter);
+
+        filteredCars.forEach(car => {
+            const carCard = document.createElement('div');
+            carCard.className = 'bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition';
+            carCard.innerHTML = `
+                <div class="bg-gray-300 h-48 flex items-center justify-center text-6xl">
+                    🚗
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">
+                        ${car.year} ${car.make} ${car.model}
+                    </h3>
+                    <div class="space-y-2 mb-4 text-gray-600">
+                        <p>Category: <span class="font-semibold">${car.category}</span></p>
+                        <p>Seats: <span class="font-semibold">${car.seats}</span></p>
+                        <p>Transmission: <span class="font-semibold">${car.transmission}</span></p>
+                        <p>Fuel: <span class="font-semibold">${car.fuelType}</span></p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$${car.pricePerDay}/day</span>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(carCard);
+        });
+    }
+
+    function filterCars(category) {
+        currentFilter = category;
+
+        // Update button styles
+        document.getElementById('filter-all').className = category === 'all' 
+            ? 'px-4 py-2 rounded bg-blue-600 text-white' 
+            : 'px-4 py-2 rounded bg-gray-200';
+        document.getElementById('filter-economy').className = category === 'economy' 
+            ? 'px-4 py-2 rounded bg-blue-600 text-white' 
+            : 'px-4 py-2 rounded bg-gray-200';
+        document.getElementById('filter-sedan').className = category === 'sedan' 
+            ? 'px-4 py-2 rounded bg-blue-600 text-white' 
+            : 'px-4 py-2 rounded bg-gray-200';
+        document.getElementById('filter-suv').className = category === 'suv' 
+            ? 'px-4 py-2 rounded bg-blue-600 text-white' 
+            : 'px-4 py-2 rounded bg-gray-200';
+
+        displayCars(category);
+    }
+
+    function scrollToCars() {
+        document.getElementById('cars').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initial display
+    displayCars('all');
+</script>
+
+</body>
+</html>
